@@ -5,32 +5,48 @@
  */
 var Module = require('meanio').Module;
 
-var Theme = new Module('theme');
+var Mobile = new Module('mobile');
 
 /*
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Theme.register(function(app, auth, database) {
+Mobile.register(function(app, auth, database) {
 
   //We enable routing. By default the Package Object is passed to the routes
-  Theme.routes(app, auth, database);
+  Mobile.routes(app, auth, database);
 
   //We are adding a link to the main menu for all authenticated users
-//  Theme.menus.add({
-//    title: 'theme example page',
-//    link: 'theme example page',
-//    roles: ['authenticated'],
-//    menu: 'main'
-//  });
-
-  Theme.aggregateAsset('css', 'loginForms.css');
-  Theme.angularDependencies(['mobile-angular-ui']);
+  Mobile.menus.add([{
+          title: '首页',
+          link: 'home',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: '朋友列表',
+          link: 'list',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: '新建朋友',
+          link: 'create',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: '设置',
+          link: 'set',
+          roles: ['authenticated'],
+          menu: 'main'
+      }]);
+  Mobile.angularDependencies(['mobile-angular-ui']);
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above
     // Save settings with callback
     // Use this for saving data from administration pages
-    Theme.settings({
+    Mobile.settings({
         'someSetting': 'some value'
     }, function(err, settings) {
         //you now have the settings object
@@ -38,15 +54,15 @@ Theme.register(function(app, auth, database) {
 
     // Another save settings example this time with no callback
     // This writes over the last settings.
-    Theme.settings({
+    Mobile.settings({
         'anotherSettings': 'some value'
     });
 
     // Get settings. Retrieves latest saved settigns
-    Theme.settings(function(err, settings) {
+    Mobile.settings(function(err, settings) {
         //you now have the settings object
     });
     */
 
-  return Theme;
+  return Mobile;
 });

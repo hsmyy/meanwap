@@ -2,18 +2,51 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
 {% include '../includes/head.html' %}
 
-<body data-ng-controller="ThemeController" ng-cloak class="ng-cloak" ng-class="state">
-    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
-    {% if adminEnabled %}
-    <section class="admin-menu">
-        <div data-ng-include="'/mean-admin/views/index.html'"></div>
-    </section>
-    {% endif %}
-    <section class="content">
-        <section class="container">
-            {% block content %}{% endblock %}
-        </section>
-    </section>
+<body data-ng-controller="MobileController">
+    <!--<div class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>-->
+    <div data-ng-include="'/system/views/sidebar.html'" sidebar class="sidebar sidebar-left" toggleable parent-active-class="sidebar-left-in" id="mainSidebar"></div>
+    <div class="app">
+        <div class="navbar navbar-app navbar-absolute-top">
+            <div class="navbar-brand navbar-brand-center">
+                <span>我的朋友</span>
+            </div>
+            <div class="btn-group pull-left">
+                <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
+                    <i class="fa fa-bars"></i> Menu
+                </div>
+            </div>
+            <!--<div class="btn-group pull-right" yield-to="navbarAction">
+              <div ng-click="toggle('rightSidebar')" class="btn btn-navbar">
+                <i class="fa fa-comment"></i> Chat
+              </div>
+            </div>-->
+            <div class="btn-group pull-right">
+                <div ng-click="toggle('rightSidebar')" class="btn btn-navbar">
+                    <i class="fa fa-comment"></i> 返回
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-app navbar-absolute-bottom">
+            <div class="btn-group justified">
+                <a href="http://mobileangularui.com/" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> Docs</a>
+                <a href="https://github.com/mcasimir/mobile-angular-ui" class="btn btn-navbar"><i class="fa fa-github fa-navbar"></i> Sources</a>
+                <a href="https://github.com/mcasimir/mobile-angular-ui/issues" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> Issues</a>
+            </div>
+        </div>
+
+        <div class="app-body" ng-class="{loading: loading}">
+            <div ng-show="loading" class="app-content-loading">
+                <i class="fa fa-spinner fa-spin loading-spinner"></i>
+            </div>
+
+            <section class="content">
+                <section class="container">
+                    {% block content %}{% endblock %}
+                </section>
+            </section>
+        </div>
+    </div>
     {% include '../includes/foot.html' %}
 </body>
 

@@ -16,6 +16,7 @@ var mean = require('meanio'),
   mongoStore = require('connect-mongo')(session),
   helpers = require('view-helpers'),
   flash = require('connect-flash'),
+  express = require('express'),
   config = mean.loadConfig();
 
 module.exports = function(app, passport, db) {
@@ -97,7 +98,8 @@ module.exports = function(app, passport, db) {
 
   //mean middleware from modules before routes
   app.use(mean.chainware.before);
-
+  app.use('/mobile', express.static(config.root + '/mobile'));
+  app.use('/fonts', express.static(config.root + '/mobile'));
   // Connect flash for flash messages
   app.use(flash());
 };
