@@ -40,6 +40,48 @@ Mobile.register(function(app, auth, database) {
           link: 'set',
           roles: ['authenticated'],
           menu: 'main'
+      },
+      {
+          title: 'scroll',
+          link: 'scroll',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: 'toggle',
+          link: 'toggle',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: 'tabs',
+          link: 'tabs',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: 'accordion',
+          link: 'accordion',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: 'overlay',
+          link: 'overlay',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: 'forms',
+          link: 'forms',
+          roles: ['authenticated'],
+          menu: 'main'
+      },
+      {
+          title: 'carousel',
+          link: 'carousel',
+          roles: ['authenticated'],
+          menu: 'main'
       }]);
   Mobile.angularDependencies(['mobile-angular-ui']);
   /**
