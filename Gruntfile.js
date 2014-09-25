@@ -69,7 +69,7 @@ module.exports = function(grunt) {
     },
     nodemon: {
       dev: {
-        script: 'server.js',
+        script: 'server3.js',
         options: {
           args: [],
           ignore: ['node_modules/**'],
@@ -107,11 +107,20 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma.conf.js'
       }
-    }
+    },
+      forever: {
+          server:{
+              options: {
+                  index: 'server3.js',
+                  logDir: 'logs'
+              }
+          }
+      }
   });
 
   //Load NPM tasks
   require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('grunt-forever');
 
   //Default task(s).
   if (process.env.NODE_ENV === 'production') {
@@ -119,7 +128,7 @@ module.exports = function(grunt) {
   } else {
     grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concurrent']);
   }
-
+    grunt.registerTask('run', ['clean', 'cssmin', 'uglify', 'forever:server:start']);
   //Test task.
   grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 
