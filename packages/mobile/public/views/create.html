@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div ng-controller="NewPersonController">
+    <div content-for="title">
+        <span>新建朋友</span>
+    </div>
+    <div class="scrollable">
+        <div class="scrollable-content section">
+            <form action="" id="">
+                <div bs-panel title="朋友基本信息">
+                    <input
+                            bs-form-control
 
-</body>
-</html>
+                            type="text"
+                            ng-model="person.name"
+                            label="姓名"
+                            label-class="col-xs-3 col-sm-2 col-lg-1"
+                            class="col-xs-9 col-sm-10 col-lg-11"
+                            placeholder=""
+                            />
+                </div>
+                <div bs-panel class="form-actions">
+                    <div content-for="navbarAction" duplicate>
+                        <button class="btn btn-primary" ng-click="create()">
+                            创建
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div ng-if="success" class="alert alert-success">
+                创建成功！
+            </div>
+        </div>
+    </div>
+</div>

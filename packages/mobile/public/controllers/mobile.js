@@ -7,7 +7,6 @@ angular.module('mean.mobile').controller('MobileController', ['$rootScope', '$sc
     $scope.package = {
       name: 'mobile'
     };
-
       // Default hard coded menu items for main menu
       var defaultMainMenu = [
 

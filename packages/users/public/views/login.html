@@ -1,34 +1,32 @@
-<div data-ng-controller="LoginCtrl">
+<div class="scrollable">
+    <div class="scrollable-content section">
+    <div data-ng-controller="LoginCtrl">
 
-    <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
-
-    <h2>Login</h2>
-
-    <form id="login_form" ng-submit="login()">
-        <div class="input-wrapper">
-            <input required id="email_block" type="email" name="email" placeholder="Email Address" ng-model="user.email">
-            <div class="error_message">Please enter a correct info #</div>
-            <span class="pic email"></span>
+        <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
+        <div bs-panel title="登录">
+            <form id="login_form" ng-submit="login()">
+                <div>
+                    <input bs-form-control required id="email_block" type="email"
+                           label="电子邮箱" label-class="col-xs-6 col-sm-4 col-lg-2"
+                           name="email" placeholder="电子邮箱" ng-model="user.email">
+                    <div class="error_message">Please enter a correct info #</div>
+                </div>
+                <div>
+                    <input bs-form-control required id="password_block"
+                           label="密码" label-class="col-xs-6 col-sm-4 col-lg-2"
+                           name="password" type="{{input.type}}" placeholder="密码" ng-model="user.password">
+                    <div class="error_message">Please enter a correct info #</div>
+                </div>
+                <div class="forgot_password">
+                    <a ui-sref='forgot-password'>忘记密码了?</a>
+                </div>
+                <div class="button_login">
+                    <button type="submit" class="submit_button">登录</button>
+                    <p>还没有帐号?</p>
+                    <a ui-sref='auth.register' >注册</a>
+                </div>
+            </form>
         </div>
-        <div class="input-wrapper">
-            <input required id="password_block" name="password" type="{{input.type}}" placeholder="{{input.placeholder}}" ng-model="user.password">
-            <div class="error_message">Please enter a correct info #</div>
-                <span class="pic password {{input.iconClass}}" ng-click = "togglePasswordVisible()">
-                      <div class="hide_text_password">
-                          {{input.tooltipText}}
-                      </div>
-                </span>
-        </div>
-        <div class="forgot_password">
-            <a ui-sref='forgot-password'>Forgot your password?</a>
-        </div>
-        <div class="button_login">
-            <button type="submit" class="submit_button">Login</button>
-            <p>Don't have an account?</p>
-            <a ui-sref='auth.register' >Sign up</a>
-        </div>
-        <div class="woman_ninja_bottom">
-            <img src="/theme/assets/img/woman_ninja.png" alt="#">
-        </div>
-    </form>
+    </div>
+    </div>
 </div>

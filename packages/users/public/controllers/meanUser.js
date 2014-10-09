@@ -87,13 +87,13 @@ angular.module('mean.users')
 
       $scope.togglePasswordVisible = function() {
         $scope.input.type = $scope.input.type === 'text' ? 'password' : 'text';
-        $scope.input.placeholder = $scope.input.placeholder === 'Password' ? 'Visible Password' : 'Password';
+        $scope.input.placeholder = $scope.input.placeholder === '密码' ? '明文密码' : '密码';
         $scope.input.iconClass = $scope.input.iconClass === 'icon_hide_password' ? '' : 'icon_hide_password';
         $scope.input.tooltipText = $scope.input.tooltipText === 'Show password' ? 'Hide password' : 'Show password';
       };
       $scope.togglePasswordConfirmVisible = function() {
         $scope.input.type = $scope.input.type === 'text' ? 'password' : 'text';
-        $scope.input.placeholderConfirmPass = $scope.input.placeholderConfirmPass === 'Repeat Password' ? 'Visible Password' : 'Repeat Password';
+        $scope.input.placeholderConfirmPass = $scope.input.placeholderConfirmPass === '重复密码' ? '明文重复密码' : '重复密码';
         $scope.input.iconClassConfirmPass = $scope.input.iconClassConfirmPass === 'icon_hide_password' ? '' : 'icon_hide_password';
         $scope.input.tooltipTextConfirmPass = $scope.input.tooltipTextConfirmPass === 'Show password' ? 'Hide password' : 'Show password';
       };
